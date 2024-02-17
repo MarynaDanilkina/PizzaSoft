@@ -10,9 +10,12 @@ import React, { useEffect, useState } from 'react';
 import { getEmployees } from 'store/slices/main/actions';
 import { EmployeesProps } from 'store/slices/main/types';
 import SortForm from 'components/common/SortForm';
+import { ROUTES } from 'data/Routes';
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { isLoading, employees, sort, role, checked } = useAppSelector(
     (state) => state.main,
   );
@@ -84,7 +87,7 @@ const MainPage = () => {
         onRow={(record) => {
           return {
             onClick: () => {
-              console.log(record.id);
+              navigate(`${ROUTES.EDIT}/${record.id}`);
             },
           };
         }}
