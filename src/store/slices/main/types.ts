@@ -1,7 +1,7 @@
 import { FilterRole, SortingOrder } from 'interfaces/interfaces';
 
 export type EmployeesProps = {
-  id: number;
+  id?: number;
   name: string;
   isArchive: boolean;
   role: string;
@@ -12,6 +12,7 @@ export type EmployeesProps = {
 export type TInitialState = {
   isLoading: boolean;
   employees: EmployeesProps[];
+  employeeId: EmployeesProps | null;
   sort: SortingOrder.Default;
   role: FilterRole;
   checked: boolean;

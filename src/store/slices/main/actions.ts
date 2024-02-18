@@ -39,3 +39,36 @@ export const createEmployees = createAsyncThunk(
     return data;
   },
 );
+
+export const getEmployeesId = createAsyncThunk(
+  'main/getEmployeesId',
+  async ({ id }: { id: string }) => {
+    const url = `http://localhost:3004/employees/${id}`;
+
+    const response = await fetch(url);
+    const data = (await response.json()) as EmployeesProps;
+    return data;
+  },
+);
+
+export const updateEmployee = createAsyncThunk(
+  'main/updateEmployee',
+  async ({
+    id,
+    updatedEmployeeData,
+  }: {
+    id: number;
+    updatedEmployeeData: EmployeesProps;
+  }) => {
+    const response = await fetch(`http://localhost:3004/employees/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedEmployeeData),
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  },
+);

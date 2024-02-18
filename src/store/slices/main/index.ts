@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { FilterRole, SortingOrder } from 'interfaces/interfaces';
-import { createEmployees, getEmployees } from './actions';
+import { getEmployees, getEmployeesId } from './actions';
 
 import type { TInitialState } from './types';
 
 const initialState: TInitialState = {
   isLoading: true,
   employees: [],
+  employeeId: null,
   sort: SortingOrder.Default,
   role: FilterRole.All,
   checked: false,
@@ -32,13 +33,11 @@ export const mainReducer = createSlice({
     });
     builder.addCase(getEmployees.fulfilled, (state, action) => {
       state.employees = action.payload;
+      state.employeeId = null;
       state.isLoading = false;
     });
-    builder.addCase(createEmployees.pending, (state) => {
-      state.isLoading = true;
-    });
-    builder.addCase(createEmployees.fulfilled, (state) => {
-      state.isLoading = false;
+    builder.addCase(getEmployeesId.fulfilled, (state, action) => {
+      state.employeeId = action.payload;
     });
   },
 });

@@ -40,16 +40,11 @@ const CreatePage = () => {
     resolver: yupResolver(schema),
   });
 
-  function goBack() {
-    navigate(-1);
-  }
-
   const onSubmit: SubmitHandler<IForm> = async (data) => {
     console.log(data);
     dispatch(
       createEmployees({
         employeeData: {
-          id: Math.random(),
           name: data.name,
           role: data.role,
           isArchive: data.isArchive,
@@ -59,7 +54,7 @@ const CreatePage = () => {
       }),
     );
     messageApi.success({
-      content: 'Entity has been updated.',
+      content: 'Entity has been created.',
     });
     navigate(ROUTES.MAIN);
   };
@@ -67,7 +62,6 @@ const CreatePage = () => {
   return (
     <div>
       {contextHolder}
-      <button onClick={goBack}>Назад</button>
       <form
         onSubmit={handleSubmit(onSubmit)}
         style={{
