@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { FilterRole, SortingOrder } from 'interfaces/interfaces';
-import { getEmployees } from './actions';
+import { createEmployees, getEmployees } from './actions';
 
 import type { TInitialState } from './types';
 
@@ -32,6 +32,12 @@ export const mainReducer = createSlice({
     });
     builder.addCase(getEmployees.fulfilled, (state, action) => {
       state.employees = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(createEmployees.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(createEmployees.fulfilled, (state) => {
       state.isLoading = false;
     });
   },

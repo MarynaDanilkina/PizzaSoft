@@ -4,7 +4,7 @@ import { EmployeesProps } from './types';
 
 export const getEmployees = createAsyncThunk(
   'main/getEmployees',
-  async ({ role, checked }: { role: FilterRole; checked: boolean }) => {
+  async ({ role, checked }: { role: FilterRole; checked?: boolean }) => {
     const roleParamsMap: { [key in FilterRole]: string } = {
       [FilterRole.All]: '',
       [FilterRole.Cook]: 'cook',
@@ -20,6 +20,22 @@ export const getEmployees = createAsyncThunk(
 
     const response = await fetch(url);
     const data = (await response.json()) as EmployeesProps[];
+    return data;
+  },
+);
+
+export const createEmployees = createAsyncThunk(
+  'main/createEmployees',
+  async ({ employeeData }: { employeeData: EmployeesProps }) => {
+    const response = await fetch('http://localhost:3004/employees', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(employeeData),
+    });
+    const data = await response.json();
+    console.log(data);
     return data;
   },
 );

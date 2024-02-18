@@ -68,6 +68,10 @@ const MainPage = () => {
       [...employees].sort((a, b) => sortedDesc(a.birthday, b.birthday)),
   };
 
+  const goToCreate = () => {
+    navigate(ROUTES.CREATE);
+  };
+
   useEffect(() => {
     setSortEmployees(sortFunctions[sort](employees));
   }, [sort, employees]);
@@ -78,6 +82,7 @@ const MainPage = () => {
 
   return (
     <div>
+      <button onClick={goToCreate}>Create Employees</button>
       <SortForm />
       <Table
         pagination={false}

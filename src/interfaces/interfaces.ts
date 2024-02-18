@@ -19,3 +19,8 @@ export enum FilterRole {
   Waiter = 'waiter',
   Cook = 'cook',
 }
+export enum Role {
+  Driver = 'driver',
+  Waiter = 'waiter',
+  Cook = 'cook',
+}
