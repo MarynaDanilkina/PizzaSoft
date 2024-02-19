@@ -9,9 +9,10 @@ import {
 import React, { useEffect, useState } from 'react';
 import { getEmployees } from 'store/slices/main/actions';
 import { EmployeesProps } from 'store/slices/main/types';
-import SortForm from 'components/common/SortForm';
+import { SortForm } from 'components/common/SortForm';
 import { ROUTES } from 'data/Routes';
 import { useNavigate } from 'react-router-dom';
+import './main.scss';
 
 const MainPage = () => {
   const dispatch = useAppDispatch();
@@ -81,10 +82,15 @@ const MainPage = () => {
   }
 
   return (
-    <div>
-      <button onClick={goToCreate}>Create Employees</button>
+    <div className="main_container">
+      <div className="button_container">
+        <button className="button" onClick={goToCreate}>
+          Create Employees
+        </button>
+      </div>
       <SortForm />
       <Table
+        className="main_table"
         pagination={false}
         rowKey="id"
         columns={columns}

@@ -78,7 +78,7 @@ const EditPage = () => {
   ) as unknown as string;
 
   return (
-    <div>
+    <div className="form_container">
       {contextHolder}
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -150,7 +150,9 @@ const EditPage = () => {
             </Form.Item>
           )}
         />
-        <button type="submit">Update</button>
+        <button className="button" type="submit">
+          Update
+        </button>
       </form>
     </div>
   );

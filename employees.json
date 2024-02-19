@@ -1,12 +1,12 @@
 {
   "employees": [
     {
-      "id": "1",
       "name": "Илья Емельянов",
-      "isArchive": false,
-      "role": "driver",
+      "role": "waiter",
+      "isArchive": true,
+      "birthday": "12.02.1982",
       "phone": "+7 (883) 508-3269",
-      "birthday": "12.02.1982"
+      "id": "1"
     },
     {
       "id": "2",

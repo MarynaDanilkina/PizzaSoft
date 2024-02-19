@@ -1,0 +1,21 @@
+.container_sort-form{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.sort-form_form-item{
+  margin: 0px !important;
+}
+.sort-form_checkbox{
+  display: flex;
+  align-items: center;
+}
+.ant-col.ant-form-item-control{
+  width: 100%;
+}
+.ant-row.ant-form-item-row{
+  display: flex;
+  flex-flow: nowrap;
+  gap: 5px;
+}

@@ -8,6 +8,23 @@ body {
   background-color: #cbd6e0;
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  margin: 40px 0px;
+  width: 100%;
+}
+.button_container{
+  display: flex;
+}
+.button{
+  height: 30px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background-color: #90c2b1;
+  border: none;
+  cursor: pointer;
+}
+.form_container{
+  padding: 20px;
+  background-color: #a1a8ae;
+  border-radius: 20px;
 }

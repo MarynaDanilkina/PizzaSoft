@@ -41,7 +41,6 @@ const CreatePage = () => {
   });
 
   const onSubmit: SubmitHandler<IForm> = async (data) => {
-    console.log(data);
     dispatch(
       createEmployees({
         employeeData: {
@@ -60,7 +59,7 @@ const CreatePage = () => {
   };
 
   return (
-    <div>
+    <div className="form_container">
       {contextHolder}
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -120,7 +119,9 @@ const CreatePage = () => {
             </Form.Item>
           )}
         />
-        <button type="submit">Create</button>
+        <button className="button" type="submit">
+          Create
+        </button>
       </form>
     </div>
   );
